@@ -1,0 +1,28 @@
+body {
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+#nav {
+    display: grid;
+    grid-template-rows: 50px 30px auto;
+}
+
+li {
+    list-style-type: none;
+    padding: 10px;
+    
+}
+
+li a {
+    color: green;
+    text-decoration: none;
+}
+
+li a .active {
+    color: grey;
+    text-decoration: none;
+}
+
+#main {
+    display: grid;
+}

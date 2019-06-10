@@ -1,0 +1,79 @@
+{
+    "projects": [
+        {
+            "id": 1,
+            "title": "Indianhead Valley Condos Website",
+            "type": "Fullstack",
+            "tech": [
+                "ParsePlatform",
+                "Php",
+                "Javascript",
+                "html",
+                "css",
+                "Stripe",
+                "AWS"
+            ],
+            "description": "Indianhead Valley website build description"
+        },
+        {
+            "id": 2,
+            "title": "Indianhead Valley Condos Management iOS App",
+            "type": "Mobile App",
+            "tech": [
+                "ParsePlatform",
+                "iOS",
+                "Stripe",
+                "Particle Cloud"
+            ],
+            "description": "Indianhead Valley App description"
+        },
+        {
+            "id": 3,
+            "title": "Crime Scene Evidence Marker",
+            "type": "Mobile App",
+            "tech": [
+                "iOS"
+            ],
+            "description": "Crime Scene Evidence Marker App description"
+        },
+        {
+            "id": 4,
+            "title": "Blood Spatter Calculator",
+            "type": "Mobile App",
+            "tech": [
+                "iOS"
+            ],
+            "description": "Blood spatter calc App description"
+        },
+        {
+            "id": 5,
+            "title": "Blood Spatter Calculator Pro",
+            "type": "Mobile App",
+            "tech": [
+                "iOS",
+                "CloudKit"
+            ],
+            "description": "Blood spatter calc pro App description"
+        },
+        {
+            "id": 6,
+            "title": "Crime Scene Identifier Card",
+            "type": "Mobile App",
+            "tech": [
+                "iOS"
+            ],
+            "description": "Crime Scene Identifier Card App description"
+        },
+        {
+            "id": 7,
+            "title": "Simple Schedule Viewer",
+            "type": "Mobile App",
+            "tech": [
+                "iOS",
+                "CloudKit",
+                "EventKit"
+            ],
+            "description": "Blood spatter calc App description"
+        }
+    ]
+}
