@@ -2,14 +2,25 @@ body {
     display: grid;
     grid-template-columns: 20% 80%;
 }
+
 #nav {
     display: grid;
     grid-template-rows: 50px 30px auto;
 }
 
+ul {
+    text-align: center;
+    padding-inline-start: 0px;
+}
+
+li :hover {
+    background-color: purple;
+}
+
 li {
     list-style-type: none;
-    padding: 10px;
+    margin: 35px;
+    text-align: center;
     
 }
 
@@ -18,9 +29,8 @@ li a {
     text-decoration: none;
 }
 
-li a .active {
+li a.active {
     color: grey;
-    text-decoration: none;
 }
 
 #main {
