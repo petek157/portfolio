@@ -8,57 +8,46 @@
         <meta name="description" content="">
         <meta name="author" content="Peter Koruga">
 
-        <link rel="stylesheet" href="/barebone/css/styles.css?v=1.0">
+        <link rel="stylesheet" href="/barebone/css/styles.css?v=1.1">
 
     </head>
 
     <body>
-        <div id="nav">
-            <div class="headshot"><img src="" alt=""/></div>
-            <div class="name">Peter Koruga</div>
-            <div class="leftMenu">
-                <li><a class="active" href="/barebone/index.html">Home</a></li>
-                <li><a href="/barebone/about.html">Peter</a></li>
+        <nav id="nav">
+            <a class="name" href="/barebone/index.html">Peter Koruga</a>
+            <ul class="right-menu">
+                <!-- <li><a href="/barebone/about.html">About Me</a></li> -->
                 <li><a href="/barebone/resume.html">Resume</a></li>
                 <li><a href="/barebone/portfolio.html">Portfolio</a></li>
-            </div>
-        </div>
+            </ul>
+        </nav>
         <div id="main">
             <div class="title">
                 <h2>Welcome</h2>
             </div>
             <div class="content">
-                <p>Site version picker here</p>
-                <div class="picker-box">
-                    <div class="picker-image">
-
-                    </div>
-                    <div class="picker-title">Bare Bones</div>
-                    <div class="picker-description">
-                        <span>The bare bone version is only HTML, CSS, JS and a JSON data file. Simple, quick and clean. Sites dont have to be overly developed to be effective.</span>
-                    </div>
-                </div>
-                <div class="picker-box">
-                        <div class="picker-image">
-    
-                        </div>
-                        <div class="picker-title">RoR</div>
+                <p class="subtitle">Choose your version.</p>
+                <div class="picker-boxes">
+                    <div class="picker-box">
+                        <div class=picker-image><img src="images/rails-logo.svg" alt="RoR" /></div>
                         <div class="picker-description">
                             <span>The RoR version allows people visiting the site to create a user and comment on how the site could be improved or what they think about projects in the portfolio.</span>
                         </div>
                     </div>
-                    <div class="picker-box">
-                        <div class="picker-image">
-    
-                        </div>
-                        <div class="picker-title">React</div>
+                    <div class="picker-box active">
+                        <div class=picker-image><img src="images/html.svg" alt="HTML" /></div>
                         <div class="picker-description">
-                            <span>The React version with AWS Amplify showcases the many possibilities of connecting to AWS.</span>
+                            <span>The bare bone version is only HTML, CSS, JS and a JSON data file. Simple, quick and clean. Sites dont have to be overly developed to be effective.</span>
                         </div>
                     </div>
-                <p>
-                    Feel free to look around. This version of the site is strictly bare bones. It consists of HTML, CSS, Javascript and a JSON data file.
-                </p>
+                    <div class="picker-box">
+                        <div class=picker-image><img src="images/react.svg" alt="" /></div>
+                        <div class="picker-description">
+                            <span>The React version with AWS Amplify showcases a few of the many possibilities of connecting to AWS.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="style-explain">You'll notice that not one of the site versions is styled very well. There is a very good reason for that, I have no style. Seeing something that I like, duplicating it is no problem. But seen as this site is supposed to show what "I" can do, having it look pretty based on someone elses design seems a bit unauthentic.</div>
             </div>
         </div>
         <script src="/barebone/js/scripts.js"></script>

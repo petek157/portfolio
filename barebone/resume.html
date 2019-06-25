@@ -13,27 +13,80 @@
     </head>
 
     <body>
-        <div id="nav">
-                <div class="headshot"><img src="" alt=""/></div>
-                <div class="name">Peter Koruga</div>
-                <div class="leftMenu">
-                    <li><a href="/barebone/index.html">Home</a></li>
-                    <li><a href="/barebone/about.html">Peter</a></li>
-                    <li><a class="active" href="/barebone/resume.html">Resume</a></li>
-                    <li><a href="/barebone/portfolio.html">Portfolio</a></li>
-                </div>
-            </div>
+        <nav id="nav">
+                <a class="name" href="/barebone/index.html">Peter Koruga</a>
+            <ul class="right-menu">
+                <!-- <li><a href="/barebone/about.html">About Me</a></li> -->
+                <li><a href="/barebone/resume.html">Resume</a></li>
+                <li><a href="/barebone/portfolio.html">Portfolio</a></li>
+            </ul>
+        </nav>
             <div id="main">
-                <div class="title">
-                    <h2>My Resume(s)</h2>
-                </div>
                 <div class="subtitle">
-                    <p>Making is my passion!</p>
+                    <p><span class="sub-high">Making is my passion!</span><br />Software applications, IoT hardware/software, animated light shows, heck, just plan arts and crafts. I just look forward to making stuff.</p>
                 </div>
                 <div class="content">
-                    <p>
-                        In deciding what to write as an intro to the resume section, it has become glaring obvious to me that what I enjoy doing is making stuff.
-                    </p>
+                    <div class="resume">
+                        <div class="header">
+
+                        </div>
+                        <div class="body">
+                            <div class="section">
+                                <div class="cat">Personal Project - Completed out in the world</div>
+                                <div class="explain"></div>
+                                <div class="sub">Website/Application for Indianhead Valley Condos - indianheadvalley.com</div>
+                                <div class="info">
+                                    <p>Online availability and booking on the front end and all of the RMS functionality in the back end. The app uses Parseplatform API and Server for data storage and user admin (currently refactoring to use Ruby on Rails). It is capable of managing all aspects of a family owned lodging facility. Which includes creating, reading, updating and deleting guests, reservations, payments and other financial/ bookkeeping/sales data. Payment processing via the Stripe API. Visual reservation calendar for 13 units.</p>
+                                </div>
+                                <div class="sub">iOS Administration App for Indianhead Valley Condos</div>
+                                <div class="info"> 
+                                    <p> of the functionality of the back end of the website including Stripe payments.</p>
+                                </div>
+                                <div class="sub">iOS Apps on the App Store</div>
+                                <div class="info"> 
+                                    <ul>
+                                        <li>Crime Scene Evidence Marker</li>
+                                        <li>Simple Schedule Viewer</li>
+                                        <li>Crime Scene Idenfifier Card</li>
+                                        <li>Blood Spatter Angle Calculator</li>
+                                        <li>Blood Spatter Angle Calculator Pro</li>
+                                    </ul>
+                                </div>
+                                <div class="sub">IoT Garage Door Opener and iOS App</div>
+                                <div class="info"> 
+                                    <p>This was a VERY satisfying project. It was the first time that I had ever designed, laid out and etched my own circuit board.</p>
+                                </div>
+                                <div class="sub">IoT Turtle tank climate and lighting control</div>
+                                <div class="info"> 
+                                    <p>particle.io Photon controller GPIO control of relays turning on/off a heater, UVB and heat lights</p>
+                                </div>
+                                <div class="cat">Personal Project - In the pipeline</div>
+                                <div class="explain"></div>
+                                <div class="sub">Ruby on Rails Digital Display System - In development</div>
+                                <div class="info"> 
+                                    <p>Using a Raspberry Pi connected to the internet and connected to monitors, the system allows customer of the service to display information to viewers.</p>
+                                </div>
+                            </div>
+                            <div class="section">
+                                <div class="cat">Skills</div>
+                                <div class="explain"></div>
+                            </div>
+                            <div class="section">
+                                <div class="cat">Development Certificates from Lynda.com and LinkedIn Learning</div>
+                                <div class="explain"></div>
+                                <div class="info"> 
+                                    <p>Learning React.js, Learning Server-Side Swift with Vapor, Accounting Foundations: Bookkeeping, Learning Video Production and Editing, Finance Essentials for Small Business, Accounting Foundations, Bootstrap 3 Essential Training, jQuery Essential Training, Validating and Processing Forms with Javascript and PHP, InDesign CS5: Print Production Guidelines, Swift Essential Training, Distributing iOS Applications Through the App Store, Learning Python, SQL Essential Training</p>
+                                </div>
+                            </div>
+                            <div class="section">
+                                <div class="cat">Education</div>
+                                <div class="explain"></div>
+                                <div class="info"> 
+                                    <p>Bachelors of Science in Business from Northern Michigan University 2005</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         <script src="/barebone/js/scripts.js"></script>
