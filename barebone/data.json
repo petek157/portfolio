@@ -20,11 +20,11 @@
                 "Particle Cloud",
                 "Particle Photon"
             ],
-            "desc-html": [
+            "description": [
                 "Indianhead Valley's frontend website using PHP and javscript / jQuery to back a custom online reservation system where guest can do the usual price and availablity checking and book units. Payment is done via the Stripe Payments API. The database is base on the ParsePlatform using MongoDB. The phone and messaging system is run through the Twilio API.", "The admin side allows managers to perform all CRUD functions of a Resevation Managment System, including, units, guests, reservation, payments, financials and reservation/guest notes and more. Also core is a 13 unit reservation calander.", "The iOS app includes all of the functionality of the backend of the website but also includes a few IoT objects. Temperature sensors that can be viewed in the app and alert managment to low temperatures.  Outside lights when there are no guests or when guests want an unpoluted view of the stars can be remotely shut off."
             ],
             "link": "http://www.indianheadvalley.com",
-            "image": "/images/ihv.png"
+            "image": "images/ihv.png"
         },
         {
             "id": 2,
@@ -33,9 +33,9 @@
             "tech": [
                 "iOS"
             ],
-            "description": "iOS app that allows police evidence techs, either in the field or in the lab, to use their phone as the evidence marker. Think the little yellow \"A\" that you see on crime shows." ,
+            "description": ["iOS app that allows police evidence techs, either in the field or in the lab, to use their phone as the evidence marker. Think the little yellow \"A\" that you see on crime shows."] ,
             "link": "https://apps.apple.com/us/app/crime-scene-evidence-marker/id685651748?ls=1",
-            "image": "/images/marker.png"
+            "image": "images/marker.jpg"
         },
         {
             "id": 3,
@@ -44,9 +44,9 @@
             "tech": [
                 "iOS"
             ],
-            "description": "iOS app that law enforcement uses to calculate blood spatter angles.",
+            "description": ["iOS app that law enforcement uses to calculate blood spatter angles."],
             "link": "https://apps.apple.com/us/app/blood-spatter-angle-calculator/id877746533",
-            "image": "/images/spatter.png"
+            "image": "images/spatter.png"
         },
         {
             "id": 4,
@@ -56,9 +56,9 @@
                 "iOS",
                 "CloudKit"
             ],
-            "description": "iOS app that law enforcement uses to calculate blood spatter angles. This version of the app also saves the measurements in iCloud's ClouKit and prints reports to be used in court.",
+            "description": ["iOS app that law enforcement uses to calculate blood spatter angles. This version of the app also saves the measurements in iCloud's ClouKit and prints reports to be used in court."],
             "link": "https://apps.apple.com/us/app/blood-spatter-angle-calculator-pro/id1246873399",
-            "image": "/images/spatterPro.png"
+            "image": "images/spatterPro.png"
         },
         {
             "id": 5,
@@ -67,9 +67,9 @@
             "tech": [
                 "iOS"
             ],
-            "description": "A super quick iOS app that is simply used by photographers (made for law enforcment evidence techs) to identify sections of pictures.",
+            "description": ["A super quick iOS app that is simply used by photographers (made for law enforcment evidence techs) to identify sections of pictures."],
             "link": "https://apps.apple.com/us/app/crime-scene-identifier-card/id894352826",
-            "image": "/images/idenfifierCard.png"
+            "image": "images/idenfifierCard.png"
         },
         {
             "id": 6,
@@ -80,9 +80,9 @@
                 "CloudKit",
                 "EventKit"
             ],
-            "description": "A different approach to the iOS calendar view. The app can access the native iOS calander and create events that can then be displayed is a way that more like your kids sports schedule on the fridge.",
+            "description": ["A different approach to the iOS calendar view. The app can access the native iOS calander and create events that can then be displayed is a way that more like your kids sports schedule on the fridge."],
             "link": "https://apps.apple.com/us/app/simple-schedule-viewer/id1344010582",
-            "image": "/images/simpleCalView.png"
+            "image": "images/simpleCalView.png"
         },
         {
             "id": 7,
@@ -95,7 +95,7 @@
                 "C++"
             ],
             "description": ["Why pay for a smart thermostat when you can build one. Utilizing a Particle Argon controller then sensing temperature and humidity and current weather condition to determine if the temp in the house should be bumped up to hold a more accurate FEELING temperature.", "A second sensing unit at the family cottage sends indoor temperature readings back to the main display unit at the house via a cellular Particle Boron.", "The iOS companion app has all of the functionality of the wall unit plus the addition of adjusting settings."],
-            "image": "/images/gramThermo.png"
+            "image": "images/gramThermo.jpg"
         },
         {
             "id": 8,
@@ -105,8 +105,8 @@
                 "Particle Photon",
                 "C++"
             ],
-            "description": "Turtle tank enviroment controller that turns on/off the heat lamp, UVB lamp and heater. Particle Photon as the controller with a relay shield for power switching. I hacked a power strip to have controllable outlets.  The enlcosure of the controller was printer on my 3d printer.",
-            "image": "/images/turtleTank.png"
+            "description": ["Turtle tank enviroment controller that turns on/off the heat lamp, UVB lamp and heater. Particle Photon as the controller with a relay shield for power switching. I hacked a power strip to have controllable outlets.  The enlcosure of the controller was printer on my 3d printer."],
+            "image": "images/turtleTank.png"
         },
         {
             "id": 9,
@@ -117,8 +117,8 @@
                 "C++",
                 "Custom PCB"
             ],
-            "description": "One of my most gratifying projects because it was my first custom designed and etched PCB. The system uses a Particle Argon for Wifi connectivity and an iOS app with API calls to the Particle Cloud to open, close and check the doors current position.",
-            "image": "/images/garageDoor.png"
+            "description": ["One of my most gratifying projects because it was my first custom designed and etched PCB. The system uses a Particle Argon for Wifi connectivity and an iOS app with API calls to the Particle Cloud to open, close and check the doors current position."],
+            "image": "images/garageDoor.png"
         }
     ]
 }

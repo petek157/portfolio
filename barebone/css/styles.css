@@ -55,10 +55,12 @@ nav li a {
 #main {
     display: grid;
     grid-template-columns: 1fr;
+    padding: 10px;
 }
 
 .title {
     text-align: center;
+    font-size: 20px;
 }
 
 #main h2 {
@@ -122,7 +124,74 @@ nav li a {
     padding: 10px 30px 10px 30px;
 }
 
+.cat-select-menu, .tags {
+    float:left;
+    width:100%;
+    overflow:hidden;
+    position:relative;
+}
+
+.cat-select-menu ul, .tags ul {
+    clear:left;
+    float:left;
+    list-style:none;
+    margin:0;
+    padding:0;
+    position:relative;
+    left:50%;
+    text-align:center;
+}
+
+.cat-select-menu ul li, .tags ul li {
+    display: block;
+    float: left;
+    list-style: none;
+    margin: 10px 12px;
+    padding: 10px;
+    position: relative;
+    right: 50%;
+    background-color: #5e5ee4;
+    border-radius: 5px;
+    color: white;
+}
+
+.cat-select-menu ul li a, .tags ul li a {
+    display:block;
+    margin:0 0 0 1px;
+    padding:3px 10px;
+    background:#ddd;
+    color:#000;
+    text-decoration:none;
+    line-height:1.3em;
+ }
+
+ .cat-select-menu ul li:hover {
+    background:#369;
+    color:#fff;
+ }
+
 .projects {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.project {
+    display: grid;
+    grid-template-rows: 24px 120px 431px auto 24px;
+    background-color: #f5f1f1;
+    padding: 10px;
+}
+
+.project .img {
+    padding: 10px
+}
+
+.project img {
+    display:block;
+    margin:auto;
+    max-height: 100%;
+    max-width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
