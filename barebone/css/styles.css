@@ -54,6 +54,7 @@ nav li a {
 
 #main {
     display: grid;
+    grid-template-columns: 1fr;
 }
 
 .title {
@@ -119,4 +120,9 @@ nav li a {
 .style-explain {
     text-align: center;
     padding: 10px 30px 10px 30px;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
