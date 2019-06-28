@@ -1,5 +1,6 @@
 $(function() {
-  
+    var selectedTags = [];
+
     $.getJSON( "/barebone/data.json", function( data ) {
       var html = "";
       var tags = ["All"];
@@ -34,7 +35,15 @@ $(function() {
       });
       tags.sort();
       $.each(tags, function(i, ta) {
-        $(".filter").append('<li>' + ta + '</li>');
+          if (ta == "All" && selectedTags.length == 0) {
+            $(".filter").append('<li class="active">' + ta + '</li>');
+          } else {
+            if ($.inArray(ta, selectedTags) != -1) {
+                $(".filter").append('<li class="active">' + ta + '</li>');
+            } else {
+                $(".filter").append('<li class="">' + ta + '</li>');
+            }
+          }
       });
       
       $(".projects").html(html);

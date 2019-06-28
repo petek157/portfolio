@@ -1,7 +1,7 @@
 body {
-    display: grid;
+    /* display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 10% 90%;
+    grid-template-rows: 10% 90%; */
     font-family: "Trebuchet MS", Helvetica, sans-serif;
 
 }
@@ -153,6 +153,10 @@ nav li a {
     background-color: #5e5ee4;
     border-radius: 5px;
     color: white;
+}
+
+.cat-select-menu ul li.active {
+    background-color: #369;
 }
 
 .cat-select-menu ul li a, .tags ul li a {
