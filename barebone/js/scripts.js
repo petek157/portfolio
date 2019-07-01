@@ -1,9 +1,11 @@
+var selectedTags = [];
+var tags = ["All"];
+
 $(function() {
-    var selectedTags = [];
 
     $.getJSON( "/barebone/data.json", function( data ) {
       var html = "";
-      var tags = ["All"];
+      
       $.each( data["projects"], function(i, project) {
         html += '<div class="project">';
         
@@ -33,20 +35,36 @@ $(function() {
           }
           html += '</div>';
       });
+
       tags.sort();
-      $.each(tags, function(i, ta) {
-          if (ta == "All" && selectedTags.length == 0) {
-            $(".filter").append('<li class="active">' + ta + '</li>');
-          } else {
-            if ($.inArray(ta, selectedTags) != -1) {
-                $(".filter").append('<li class="active">' + ta + '</li>');
-            } else {
-                $(".filter").append('<li class="">' + ta + '</li>');
-            }
-          }
-      });
+        $.each(tags, function(i, ta) {
+            $(".filter").append('<li class="">' + ta + '</li>');
+        });
+        highlightFilters();
       
-      $(".projects").html(html);
+        $(".projects").html(html);
     });
   
 })
+
+$(".filter").on("click", "li", function() {
+    console.log($(this).text());
+    selectedTags.push($(this).text());
+    highlightFilters();
+})
+
+function highlightFilters() {
+    console.log("highlight");
+    $.each(tags, function(i, ta) {
+        if (ta == "All" && selectedTags.length == 0) {
+            $('.filter').find('.li').addClass('active');
+            $('.filter').find('.li:contains("' + ta + '")').addClass('active');
+        } else {
+          if ($.inArray(ta, selectedTags) != -1) {
+            $('.filter').find('.li:contains(' + ta + ')').addClass('active');
+          } else {
+            $('.filter').find('.li:contains(' + ta + ')').addClass('active');
+          }
+        }
+    });
+}
