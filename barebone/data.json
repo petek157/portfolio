@@ -21,7 +21,7 @@
                 "Particle Photon"
             ],
             "description": [
-                "Indianhead Valley's frontend website using PHP and javscript / jQuery to back a custom online reservation system where guest can do the usual price and availablity checking and book units. Payment is done via the Stripe Payments API. The database is base on the ParsePlatform using MongoDB. The phone and messaging system is run through the Twilio API.", "The admin side allows managers to perform all CRUD functions of a Resevation Managment System, including, units, guests, reservation, payments, financials and reservation/guest notes and more. Also core is a 13 unit reservation calander.", "The iOS app includes all of the functionality of the backend of the website but also includes a few IoT objects. Temperature sensors that can be viewed in the app and alert managment to low temperatures.  Outside lights when there are no guests or when guests want an unpoluted view of the stars can be remotely shut off."
+                "Indianhead Valley's frontend website using PHP and javscript / jQuery to back a custom online reservation system where guest can do the usual price and availablity checking and book units. Payment is done via the Stripe Payments API. The database is based on the ParsePlatform using MongoDB. The phone and messaging system is run through the Twilio API.", "The admin side allows managers to perform all CRUD functions of a Resevation Managment System, including, units, guests, reservation, payments, financials and reservation/guest notes and more. Also core is a 13 unit reservation calander.", "The iOS app includes all of the functionality of the backend of the website but also includes a few IoT objects. Temperature sensors that can be viewed in the app and alert managment to low temperatures.  Outside lights when there are no guests or when guests want an unpoluted view of the stars can be remotely shut off."
             ],
             "link": "http://www.indianheadvalley.com",
             "image": "images/ihv.png"
@@ -89,10 +89,11 @@
             "title": "Custom Smart Thermostat with cellular remote sensor",
             "type": ["Micro Controller", "Mobile App"],
             "tech": [
-                "Particle Agron",
+                "Particle Argon",
                 "Particle Boron",
                 "iOS",
-                "C++"
+                "C++",
+                "IoT"
             ],
             "description": ["Why pay for a smart thermostat when you can build one. Utilizing a Particle Argon controller then sensing temperature and humidity and current weather condition to determine if the temp in the house should be bumped up to hold a more accurate FEELING temperature.", "A second sensing unit at the family cottage sends indoor temperature readings back to the main display unit at the house via a cellular Particle Boron.", "The iOS companion app has all of the functionality of the wall unit plus the addition of adjusting settings."],
             "image": "images/gramThermo.jpg"
@@ -103,10 +104,11 @@
             "type": "Micro Controller",
             "tech": [
                 "Particle Photon",
-                "C++"
+                "C++",
+                "IoT"
             ],
             "description": ["Turtle tank enviroment controller that turns on/off the heat lamp, UVB lamp and heater. Particle Photon as the controller with a relay shield for power switching. I hacked a power strip to have controllable outlets.  The enlcosure of the controller was printer on my 3d printer."],
-            "image": "images/turtleTank.png"
+            "image": "images/turtle.jpg"
         },
         {
             "id": 9,
@@ -115,7 +117,8 @@
             "tech": [
                 "Particle Argon",
                 "C++",
-                "Custom PCB"
+                "Custom PCB",
+                "IoT"
             ],
             "description": ["One of my most gratifying projects because it was my first custom designed and etched PCB. The system uses a Particle Argon for Wifi connectivity and an iOS app with API calls to the Particle Cloud to open, close and check the doors current position."],
             "image": "images/garageDoor.png"

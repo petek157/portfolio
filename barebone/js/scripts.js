@@ -1,6 +1,6 @@
 var selectedTags = [];
-var tags = ["All"];
-var allProjectIds = [];
+var tags = [];
+var allProjects = [];
 var selectedProjects = [];
 
 $(function() {
@@ -9,11 +9,12 @@ $(function() {
       var html = "";
       
       $.each( data["projects"], function(i, project) {
-        allProjectIds.push(project.id);
+        allProjects.push(project);
         html += createProjectHtml(project);
       });
 
       tags.sort();
+      tags.splice(0, 0, "All");
         $.each(tags, function(i, ta) {
             if (ta == "All") {
               $(".filter").append('<li id="' + ta + '" class="active">' + ta + '</li>');
@@ -67,6 +68,8 @@ $(".filter").on("click", "li", function() {
         $(this).removeClass('active');
       });
       $(this).addClass('active');
+      selectedTags = [];
+      selectedTags.push("All");
     } else {
       if ($(this).hasClass('active')) {
         
@@ -84,7 +87,13 @@ $(".filter").on("click", "li", function() {
           $('#All').addClass('active');
         }
       } else {
-        
+        selectedTags.forEach(function(ta, i) {
+          console.log(ta);
+          console.log(selected);
+          if (ta == "All") {
+            selectedTags.splice(i, 1);
+          }
+        });
         $(this).addClass('active');
         $('#All').removeClass('active');
         selectedTags.push(selected);
@@ -94,20 +103,34 @@ $(".filter").on("click", "li", function() {
 })
 
 function filterProjects() {
-
-  selectedProjects = allProjectIds.filter(function(id) {
-    
-    return selectedTags.some(function(tag))
-    
-    project.tech.some(function(r) {
-      if (selectedTags.indexOf(r) >= 0) {
-        return project;
+  console.log(selectedTags);
+  selectedProjects = allProjects.filter(function(project) {
+    if (selectedTags[0] == "All") {
+      return project;
+    } else {
+      var projectTech = project.tech;
+      for (i = 0; i < projectTech.length; i++) {
+        var thisTech = projectTech[i];
+        for (t = 0; t < selectedTags.length; t++) {
+          if (selectedTags[t] == thisTech) {
+            return project;
+          }
+        }
       }
-    });
+    }
   });
   console.log(selectedProjects);
+
+  
+
   $('.project').each(function(i, pr) {
-    if ( selectedProjects.indexOf(pr.id) >= 0) {
+    var showIt = false;
+    for (p = 0; p < selectedProjects.length; p++) {
+      if ($(this).attr("id") == selectedProjects[p].id) {
+        showIt = true;
+      }
+    }
+    if (showIt) {
       $(this).show();
     } else {
       $(this).hide();
