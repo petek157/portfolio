@@ -118,7 +118,8 @@
                 "Particle Argon",
                 "C++",
                 "Custom PCB",
-                "IoT"
+                "IoT",
+                "iOS"
             ],
             "description": ["One of my most gratifying projects because it was my first custom designed and etched PCB. The system uses a Particle Argon for Wifi connectivity and an iOS app with API calls to the Particle Cloud to open, close and check the doors current position."],
             "image": "images/garageDoor.png"

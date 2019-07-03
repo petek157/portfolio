@@ -34,17 +34,30 @@ function createProjectHtml(project) {
         
     html += '<div class="title">' + project.title + '</div>';
     html += '<div class="tags">'
-        html += '<ul>';
-        project.tech.sort();
-          $.each(project.tech, function(i, t) {
-            console.log(t);
+        
 
-            html += '<li>' + t + '</li>';
-            if ($.inArray(t, tags) == -1) {
-              tags.push(t);
-            }
-          });
-        html += '</ul>';
+      project.tech.sort();
+        $.each(project.tech, function(i, t) {
+          console.log(t);
+
+          html += '<div class="tag">' + t + '</div>';
+          if ($.inArray(t, tags) == -1) {
+            tags.push(t);
+          }
+        });
+
+    
+        // html += '<ul>';
+        // project.tech.sort();
+        //   $.each(project.tech, function(i, t) {
+        //     console.log(t);
+
+        //     html += '<li>' + t + '</li>';
+        //     if ($.inArray(t, tags) == -1) {
+        //       tags.push(t);
+        //     }
+        //   });
+        // html += '</ul>';
     html += '</div>';
     html += '<div class="img">';
         html += '<img src="' + project.image + '"/>';
@@ -85,6 +98,8 @@ $(".filter").on("click", "li", function() {
         console.log(selectedTags.length);
         if (selectedTags.length == 0) {
           $('#All').addClass('active');
+          selectedTags = [];
+          selectedTags.push("All");
         }
       } else {
         selectedTags.forEach(function(ta, i) {
