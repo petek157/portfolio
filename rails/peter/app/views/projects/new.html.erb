@@ -1,0 +1,34 @@
+<h1>Create Project</h1>
+<br />
+<%= form_for(@project) do |f| %>
+    
+    <table summary="Project form fields">
+        <tr>
+            <th>Title</th>
+            <td><%= f.text_field(:title) %></td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td><%= f.text_area(:description) %></td>
+        </tr>
+        <tr>
+            <th>Tech</th>
+            <td><%= f.collection_check_boxes( :tech_ids, Tech.all, :name, :name) %></td>
+        </tr>
+        <tr>
+            <th>Public URL</th>
+            <td><%= f.text_field(:publicUrl) %></td>
+        </tr>
+        <tr>
+            <th>Admin URL</th>
+            <td><%= f.text_field(:adminUrl) %></td>
+        </tr>
+        <tr>
+            <th>Github URL</th>
+            <td><%= f.text_field(:gitUrl) %></td>
+        </tr>
+    </table>
+    <div class="form-buttons">
+        <%= f.submit("Create Project") %>
+    </div>
+<% end %>

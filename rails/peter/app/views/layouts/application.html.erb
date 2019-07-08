@@ -10,6 +10,17 @@
   </head>
 
   <body>
+    <div id="note"><!-- Make success error dynamic-->
+            <% if !flash[:notice].blank? %>
+                <div class="success">
+                    <%= flash[:notice] %>
+                </div>
+            <% else %>
+                <div class="divider">
+                    
+                </div>
+            <% end %>
+        </div>
     <%= yield %>
   </body>
 </html>
