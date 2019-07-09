@@ -1,0 +1,24 @@
+<div class="contacts">
+    <div class="contact"><a href="http://www.linkedin.com/in/peter-koruga">LinkedIn</a></div>
+    <div class="contact"><a href="https://github.com/petek157">Github</a></div>
+    <div class="contact"><a href="https://stackoverflow.com/story/peter-koruga">Stackoverflow</a></div>
+    <div class="contact"><a href="tel:+1-906-364-8851">(906) 364-8851</a></div>
+    <div class="contact"><a href="mailto:peterk3@koruga.com?Subject=Portfolio%20Interest">Email</a></div>
+</div>
+<h2 class="quick">Quick Info</h2>
+<ul>
+    <li>Uniquely expirenced in business for a developer</li>
+    <li>8 and counting live projects</li>
+    <li>Numerous in house projects used in private businesses</li> 
+    <li>HTML, CSS, Javascript, jQuery, Swift, Objective-C, AWS, PHP, Ruby, Rails, React, C++ (Wiring), Python, SQL</li>
+    <li>16 Certificates from Lynda/LinkedIn Learning</li>
+    <li>WILL NEVER STOP LEARNING</li>
+    <li>Bachelors of Science NMU 2005</li>
+</ul>
+<h2 class="quick">Project List</h2>
+<% @projects.each do |p| %>
+    <div class="project-list-item">
+        <div class="title"><%= p.title %></div>
+        <div class="intro"><%= p.intro %></div>
+    </div>
+<% end %>

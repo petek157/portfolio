@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @project = Project.find(params[:id])
   end
 
   def new
@@ -23,6 +24,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    @from = params[:from]
   end
 
   def update
@@ -30,7 +32,11 @@ class ProjectsController < ApplicationController
 
     if @project.update_attributes(project_params)
       flash[:notice] = "#{@project.title} was updated successfully."
-      redirect_to(project_path(@project))
+      if params[:from] == 's'
+        redirect_to(project_path(@project))
+      else 
+        redirect_to(projects_path())
+      end
     else
       render('edit')
     end
@@ -42,6 +48,6 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :description, :tech_ids, :publicUrl, :adminUrl, :gitUrl)
+    params.require(:project).permit(:title, :description, :publicUrl, :adminUrl, :gitUrl, :intro, :tech_ids => [])
   end
 end

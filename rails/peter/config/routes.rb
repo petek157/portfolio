@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  root 'home#index'
+  get 'resume', :to => 'home#resume'
+  get 'details', :to => 'home#detail'
+  get 'contact', :to => 'home#contact'
+
+  get 'home/index'
+  get 'home/resume'
+  get 'home/detail'
+
+
   resources :projects do
     member do
       get :delete

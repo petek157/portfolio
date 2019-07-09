@@ -1,0 +1,55 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.nav {
+    .name {
+        font-size: 30px;
+        text-align: center
+    }
+    a {
+        text-decoration: none;
+    }
+
+    ul {
+        width: 100%;
+        padding: 0px;
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+    li {
+        display: inline-block;
+        list-style-type: none;
+        padding: 13px 0px 13px 0px;
+        text-align: center;
+        
+    }
+}
+
+.contacts {
+    text-align: center;
+}
+
+.quick {
+    text-align: center;
+}
+
+.project-list-item {
+    .title {
+
+    }
+}
+@media only screen and (min-width: 768px) {
+    .nav {
+        .name {
+            font-size: 20px;
+        }
+        a {
+            text-decoration: none;
+        }
+        
+    }
+}

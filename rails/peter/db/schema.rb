@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_08_204921) do
+ActiveRecord::Schema.define(version: 2019_07_09_224654) do
 
   create_table "projects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "title", limit: 50, null: false
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2019_07_08_204921) do
     t.string "publicUrl"
     t.string "adminUrl"
     t.string "gitUrl"
+    t.string "intro"
   end
 
   create_table "projects_teches", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|

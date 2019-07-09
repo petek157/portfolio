@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peter Koruga</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="nav">
+        <div class="nav-left">
+            <div class="name"><%= link_to('Peter Koruga', root_path()) %></div>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li><%= link_to('Projects', details_path()) %></li>
+                <li><%= link_to('Resume', resume_path()) %></li>
+            </ul>
+        </div>
+    </div>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+<h1>Send Peter an email</h1>
+
+<%= form_tag('/home/send_email') do -%>
+    <%= label_tag 'name', 'Name'%>
+    <%= text_field_tag 'name'%><br />
+    <%= label_tag 'email', 'Return Email'%>
+    <%= text_field_tag 'email'%><br />
+    <%= label_tag 'message', 'Message'%>
+    <%= text_area_tag 'message'%>
+  <div><%= submit_tag 'Save' %></div>
+<% end -%>

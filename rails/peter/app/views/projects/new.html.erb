@@ -8,12 +8,16 @@
             <td><%= f.text_field(:title) %></td>
         </tr>
         <tr>
+            <th>Intro</th>
+            <td><%= f.text_field(:intro) %></td>
+        </tr>
+        <tr>
             <th>Description</th>
             <td><%= f.text_area(:description) %></td>
         </tr>
         <tr>
             <th>Tech</th>
-            <td><%= f.collection_check_boxes( :tech_ids, Tech.all, :name, :name) %></td>
+            <td><%= f.collection_check_boxes( :tech_ids, Tech.all, :id, :name) %></td>
         </tr>
         <tr>
             <th>Public URL</th>

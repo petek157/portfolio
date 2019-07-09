@@ -1,11 +1,15 @@
 <h1>Edit <%= @project.title%></h1>
 <br />
 <%= form_for(@project) do |f| %>
-    
+    <%= hidden_field_tag(:from, @from, :readonly => true) %>
     <table summary="Project form fields">
         <tr>
             <th>Title</th>
             <td><%= f.text_field(:title) %></td>
+        </tr>
+        <tr>
+            <th>Intro</th>
+            <td><%= f.text_field(:intro) %></td>
         </tr>
         <tr>
             <th>Description</th>
