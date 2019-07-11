@@ -7,6 +7,7 @@ class HomeController < ApplicationController
   end
 
   def detail
+    @projects = Project.all
   end
 
   def contact

@@ -1,17 +1,29 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$light-yellow: #FFFFA6;
+$yellow: #FFE373;
+$light-orange: #FC9C54;
+$orange: #FD5E53;
+$purple: #4B3D60;
+$blue: #152852;
+$dark-blue: #08183A;
+
 body {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
+    background-color: $dark-blue;
 }
 
 .nav {
+    
+
     .name {
         font-size: 30px;
         text-align: center
     }
     a {
         text-decoration: none;
+        color: white;
     }
 
     ul {
@@ -25,22 +37,85 @@ body {
         list-style-type: none;
         padding: 13px 0px 13px 0px;
         text-align: center;
+        background-color: $light-orange;
+        margin: 5px;
+        border-radius: 5px;
         
     }
+
+    
+}
+
+.head {
+    color: white;
 }
 
 .contacts {
     text-align: center;
+    .contact {
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+        background-color: $light-orange;
+    }
 }
 
 .quick {
     text-align: center;
 }
 
-.project-list-item {
-    .title {
+.link {
+    text-decoration: none;
+    color: $purple;
+}
 
+.category {
+    background-color: $light-orange;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    .intro {
+        padding-left: 5px;
     }
+}
+
+#experience {
+    ul {
+        padding-left: 0px;
+    }
+    li {
+        list-style-type: none;
+        text-align: center;
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+        background-color: $light-yellow;
+    }
+}
+
+#languages, #certificates {
+    ul {
+        padding-left: 0px;
+    }
+    li {
+        list-style-type: none;
+        text-align: center;
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+        background-color: $yellow;
+    }
+}
+
+.category-item {
+    background-color: $yellow;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
 }
 @media only screen and (min-width: 768px) {
     .nav {
