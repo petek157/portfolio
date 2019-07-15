@@ -1,5 +1,8 @@
 <h1><%= @project.title %></h1>
 <p><%= @project.description %></p>
+<% @project.image.each do |i| %>
+    <%= content_tag(:div, image_tag(i, class: "list-item-image"), class: "list-item" )%>
+<% end %>
 <div class="teches">
     <% @project.teches.each do |tech| %>
         <div class="tech">

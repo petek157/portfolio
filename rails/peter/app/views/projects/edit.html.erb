@@ -31,6 +31,10 @@
             <th>Github URL</th>
             <td><%= f.text_field(:gitUrl) %></td>
         </tr>
+        <tr>
+            <th>File</th>
+            <td><%= f.file_field(:image, multiple: true ) %></td>
+        </tr>
     </table>
     <div class="form-buttons">
         <%= f.submit("Edit #{@project.title}") %>

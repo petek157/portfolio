@@ -9,8 +9,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: petek157
-  password: PKHSI9dq
+  username: <%= Rails.application.credentials.dig(:db, :user_id) %>
+  password: <%= Rails.application.credentials.dig(:db, :pass) %>
   socket: /tmp/mysql.sock
 
 development:
