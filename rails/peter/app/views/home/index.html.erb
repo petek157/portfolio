@@ -2,41 +2,47 @@
     <div class="contact"><a href="http://www.linkedin.com/in/peter-koruga">LinkedIn</a></div>
     <div class="contact"><a href="https://github.com/petek157">Github</a></div>
     <div class="contact"><a href="https://stackoverflow.com/story/peter-koruga">Stackoverflow</a></div>
-    <div class="contact"><a href="tel:+1-906-364-8851">Call</a></div>
+    <div class="contact"><a href="tel:+1-906-364-8851">Call <span class="twilio-power">Powered by Twilio</span></a></div>
     <div class="contact"><a href="mailto:peterk3@koruga.com?Subject=Portfolio%20Interest">Email</a></div>
 </div>
-<div id="experience" class="category">
-    <h2 class="quick">Quick Info</h2>
-    <div class="category-item">
-        <ul>
-            <li>Uniquely expirenced in business for a developer<br />(Employee, Manager, Owner)</li>
-            <li>8 and counting live projects</li>
-            <li>Numerous in house projects used in private businesses</li> 
-            <li>HTML, CSS, Javascript, jQuery, Swift, Objective-C, AWS, PHP, Ruby, Rails, React, C++ (Wiring), Python, SQL</li>
-            <li>16 Certificates from Lynda/LinkedIn Learning</li>
-            <li>WILL NEVER STOP LEARNING</li>
-            <li>Bachelors of Science NMU 2005</li>
-        </ul>
+<div class="home">
+    <div id="home-quick" class="category">
+        <h2 class="quick">Quick Info</h2>
+        <div class="category-item">
+            <ul>
+                <li>Uniquely expirenced in business for a developer<br />(Employee, Manager, Owner)</li>
+                <li>8 and counting live projects</li>
+                <li>Numerous in house projects used in private businesses</li> 
+                <li>HTML, CSS, Javascript, jQuery, Swift, Objective-C, AWS, PHP, Ruby, Rails, React, C++ (Wiring), Python, SQL</li>
+                <li>16 Certificates from Lynda/LinkedIn Learning</li>
+                <li>WILL NEVER STOP LEARNING</li>
+                <li>Bachelors of Science NMU 2005</li>
+            </ul>
+        </div>
     </div>
-</div>
-<div id="experience" class="category">
-    <h2 class="quick">Projects</h2>
-    
-<% @projects.each do |p| %>
-    <div class="category-item">
-        <h3 class="intro"><%= p.title %></h3>
-        <ul>
-            <li class="intro"><%= p.intro %></li>
-            <li class="intro">
-                <% for i in 0...p.teches.count %>
-                    <% if i < p.teches.count-1 %>
-                        <%= "#{p.teches[i].name}," %>
-                    <% else %>
-                        <%= p.teches[i].name %>
-                    <% end %>
-                <% end %>
-            </li>
-        </ul>
+    <div id="home-projects" class="category">
+        <h2 class="quick">Projects</h2>
+        <div class="projects">
+            <% @projects.each do |p| %>
+                <div class="category-item">
+                    <h3 class="intro"><%= p.title %></h3>
+                    <ul>
+                        <li class="intro"><%= p.intro %></li>
+                        <li class="intro">
+                            <% for i in 0...p.teches.count %>
+                                <% if i < p.teches.count-1 %>
+                                    <%= "#{p.teches[i].name}," %>
+                                <% else %>
+                                    <%= p.teches[i].name %>
+                                <% end %>
+                            <% end %>
+                        </li>
+                        <% if p.main_image.attached? %>
+                            <li class="intro"><%= image_tag(p.main_image, class: "project-image") %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
     </div>
-<% end %>
+    </div>
 </div>

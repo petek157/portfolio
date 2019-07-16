@@ -13,14 +13,11 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new(project_params)
+    project = Project.create!(project_params)
 
-    if @project.save
-      flash[:notice] = "#{@project.title} was created successfully."
-      redirect_to(projects_path())
-    else
-       render('new')
-    end
+    flash[:notice] = "#{project.title} was created successfully."
+    redirect_to(projects_path())
+
   end
 
   def edit
@@ -30,6 +27,12 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
+    # if params[:main_image] != nil
+    #   @project.main_image.purge
+    #   @project.main_image.attach(params[:main_image])
+    # end
+    
+
     # @project.image.attach(params[:image])
     if @project.update_attributes(project_params)
       
@@ -45,11 +48,21 @@ class ProjectsController < ApplicationController
   end
 
   def delete
+    @project = Project.find(params[:id])
+  end
+
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy
+
+    flash[:notice] = "#{@project.title} was deleted successfully."
+    flash[:success] = true
+    redirect_to(projects_path())
   end
 
   private
 
   def project_params
-    params.require(:project).permit(:title, :description, :publicUrl, :adminUrl, :gitUrl, :intro, image: [], :tech_ids => [])
+    params.require(:project).permit(:title, :description, :publicUrl, :adminUrl, :gitUrl, :intro, :main_image, image: [], :tech_ids => [])
   end
 end

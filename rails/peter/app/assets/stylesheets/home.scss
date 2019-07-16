@@ -14,6 +14,18 @@ body {
     background-color: $dark-blue;
 }
 
+.nav-contact {
+    display: none;
+}
+
+.contacts {
+    display: block;
+}
+
+.twilio-power {
+    font-size: 10px;
+}
+
 .nav {
     
 
@@ -117,17 +129,158 @@ body {
     margin: 5px;
     border-radius: 5px;
 }
+
+#home-quick, #home-projects {
+    ul {
+        padding-left: 0px;
+    }
+    li {
+        list-style-type: none;
+        text-align: center;
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+        background-color: $light-yellow;
+    }
+}
+
+.project-image {
+    width: 100%;
+}
+
 @media only screen and (min-width: 768px) {
     body {
-        background-color: white;
+        padding-left: 50px;
+        padding-right: 50px;
     }
+
+    .home {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+
+    .projects {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: -5px;
+    }
+
+    .projects-detail {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .head {
+        font-size: 35px;
+        padding-bottom: 10px;
+    }
+
+    .nav-contact {
+        display: block;
+    }
+
+    .contacts {
+        display: none;
+    }
+
+    .twilio-box {
+
+        text-align: center;
+        position: fixed;
+        top: 13px;
+        right: 13px;
+        background-color: $light-orange;
+        border-radius: 5px;
+        padding: 13px 10px 13px 10px;
+        color: white;
+        .twilio-close {
+
+        }
+        .twilio-power {
+            font-size: 12px;
+        }
+    }
+
     .nav {
+        display: grid;
+        grid-template-columns: 1fr fr 1fr;
+
+        .nav-left {
+            grid-column: 2;
+            grid-row: 1/2;
+        }
+
+        .nav-right {
+            grid-column: 1;
+            grid-row: 1/2;
+        }
+
+        .nav-contact {
+            grid-column: 3;
+            grid-row: 1/2;
+        }
+
+        .contact-box {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+
+            .contact-icon {
+
+            }
+
+            .contact-under {
+                font-size: 8px;
+            }
+
+        }
+
         .name {
-            font-size: 20px;
+            padding-left: 5px;
+            font-size: 24px;
+            text-align: center;
+            padding-top: 12px;
         }
         a {
             text-decoration: none;
         }
-        
+
+        ul {
+            margin-top: 0px;
+        }
+         li {
+            text-align: left;
+            background-color: transparent;
+         }
+
+        .nav-right {
+            ul {
+                width: 100%;
+                padding: 0px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .nav-contact {
+            ul {
+                width: 100%;
+                padding: 0px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            }
+        }
+
+        li.contact {
+            display: inline-block;
+            list-style-type: none;
+            padding: 13px 0px 0px 0px;
+            text-align: center;
+            background-color: transparent;
+            margin: 5px;
+            border-radius: 0px;
+            color: white;
+        }
     }
 }
+
+//<li class="contact twilio"><%= fa_icon("phone") %><br /><span class="under-contact">Twilio</span></li>

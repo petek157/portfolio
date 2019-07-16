@@ -20,6 +20,25 @@
                 <li><%= link_to('Resume', resume_path()) %></li>
             </ul>
         </div>
+        <div class="nav-contact">
+            <ul>
+              <li class="contact"><%= link_to(fa_icon("linkedin"), "http://www.linkedin.com/in/peter-koruga") %></li>
+              <li class="contact"><%= link_to(fa_icon("github"), "https://github.com/petek157") %></li>
+              <li class="contact"><%= link_to(fa_icon("stack-overflow"), "https://stackoverflow.com/story/peter-koruga") %></li>
+              <li class="contact"><%= link_to(fa_icon("envelope"), "mailto:peterk3@koruga.com?Subject=Portfolio%20Interest") %></li>
+              <li class="contact">
+                <div class="contact-box">
+                  <div class="contact-icon twilio"><%= fa_icon("phone") %></div>
+                  <div class="contact-under twilio">Twilio</div>
+              </li>
+              <!--<li class="contact">(906)662-4859</li>-->
+            </ul>
+        </div>
+        <div class="twilio-box">
+          <span class="twilio-close"><%= fa_icon("times") %></span>
+          <span class="twilio-number">(906) 662-4859</span>
+          <span class="twilio-power">Powered by Twilio API</span>
+        </div>
     </div>
     <%= yield %>
   </body>

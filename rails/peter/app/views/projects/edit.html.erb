@@ -32,7 +32,11 @@
             <td><%= f.text_field(:gitUrl) %></td>
         </tr>
         <tr>
-            <th>File</th>
+            <th>Main Image</th>
+            <td><%= f.file_field(:main_image) %></td>
+        </tr>
+        <tr>
+            <th>Other Images</th>
             <td><%= f.file_field(:image, multiple: true ) %></td>
         </tr>
     </table>

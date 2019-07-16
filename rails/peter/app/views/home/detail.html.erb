@@ -1,31 +1,35 @@
-<h1 class="quick head">Projects</h1>
-<% @projects.each do |p| %>
-    <div id="experience" class="category">
-        <h2 class="quick"><%= p.title %></h2>
-        <p class="intro"><%= p.intro %></p>
-        <div class="category-item">
-            <ul>
-                <li><%= p.description %></li>
-                <% if p.publicUrl != "" %>
-                    <li><%= link_to('View', p.publicUrl, class: "link")  %></li>
-                <% end %>
-                <% if p.publicUrl != "" %>
-                    <li><%= link_to('Admin Demo', p.adminUrl, class: "link")  %></li>
-                <% end %>
-                <% if p.publicUrl != "" %>
-                    <li><%= link_to('Github', p.gitUrl, class: "link")  %></li>
-                <% end %>
-                <li><img src=""/></li>
-                <li>
-                    <% for i in 0...p.teches.count %>
-                        <% if i < p.teches.count-1 %>
-                            <%= "#{p.teches[i].name}," %>
-                        <% else %>
-                            <%= p.teches[i].name %>
-                        <% end %>
+<div class="quick head">Projects</div>
+<div class="projects-detail">
+    <% @projects.each do |p| %>
+        <div id="experience" class="category">
+            <h2 class="quick"><%= p.title %></h2>
+            <p class="intro"><%= p.intro %></p>
+            <div class="category-item">
+                <ul>
+                    <li><%= p.description %></li>
+                    <% if p.publicUrl != "" %>
+                        <li><%= link_to('View', p.publicUrl, class: "link")  %></li>
                     <% end %>
-                </li>
-            </ul>
+                    <% if p.publicUrl != "" %>
+                        <li><%= link_to('Admin Demo', p.adminUrl, class: "link")  %></li>
+                    <% end %>
+                    <% if p.publicUrl != "" %>
+                        <li><%= link_to('Github', p.gitUrl, class: "link")  %></li>
+                    <% end %>
+                    <% if p.main_image.attached? %>
+                        <li><%= image_tag(p.main_image, class: "project-image") %></li>
+                    <% end %>
+                    <li>
+                        <% for i in 0...p.teches.count %>
+                            <% if i < p.teches.count-1 %>
+                                <%= "#{p.teches[i].name}," %>
+                            <% else %>
+                                <%= p.teches[i].name %>
+                            <% end %>
+                        <% end %>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-<% end %>
+    <% end %>
+</div>
