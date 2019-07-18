@@ -26,8 +26,9 @@
         </div>
     <% end %>
     <!--<div class="stripe"><img src="/donate.png"/></div>-->
-    <div class="stripe">Donate to 4 the Kids</div>
+    
     <div class="nav">
+        
         <div class="nav-left">
             <div class="name"><%= link_to('Peter Koruga', root_path()) %></div>
         </div>
@@ -35,8 +36,10 @@
             <ul>
                 <li><%= link_to('Projects', details_path()) %></li>
                 <li><%= link_to('Resume', resume_path()) %></li>
+                <li class="stripe">Donate to 4 the Kids</li>
             </ul>
         </div>
+        <!--<div class="stripe">Donate to 4 the Kids</div>-->
         <div class="nav-contact">
             <ul>
               <li class="contact"><%= link_to(fa_icon("linkedin"), "http://www.linkedin.com/in/peter-koruga") %></li>
@@ -64,7 +67,7 @@
           <div class="donate-intro">
             <p>I, Peter, am a founding member of WUP Rise / 4 the Kids. We are a U.S. Non-profit organization that raises money to support the youth of the Western Upper Peninsula of Michigan. We are primarily interested
             in helping in the areas of technology education, fitness and athletics. Information about our most recent project can be found <a class="stripe-link" target="_blank"href='https://www.facebook.com/4thekidswakefield'>here</a>.</p>
-            <p>If you have any question please feel free to contact me anytime.</p>
+            <p>If you have any questions please feel free to contact me anytime.</p>
             <p>To donate, please fill out the form below.</p>
           </div>
           <%= form_tag('/donate', method: :post, id: "payment-form")%>
@@ -90,11 +93,14 @@
                   <td><%= text_field_tag(:amount, nil, class: 'big-field')%></td>
                 </tr>
                 <tr>
-                  <th><%= label_tag('card-element', 'Card Info') %></th>
-                  <td><div id="card-element"></div></td>
+                  <th></th>
+                  <td></td>
                 </tr>
               </table>
-
+                <div class="card-info">
+                  <%= label_tag('card-element', 'Card Info') %>
+                  <div id="card-element"></div>
+                </div>
                 <div id="card-errors" role="alert"></div>
 
               <button>Submit Donation</button>

@@ -1,43 +1,105 @@
 
 $(document).on("turbolinks:load", function() {
-
+    
+    var tTimer = null;
+    var tIsOpen = false;
     var tWidth = $( ".twilio-box" ).width() + 26;
     $('.twilio-box').css({'right': -tWidth});
 
     $('.twilio').click(function() {
-        console.log($( ".twilio-box" ).css('width'));
+        $('.twilio-box').css({'display': 'block'});
         $( ".twilio-box" ).animate({
             right: 63,
           }, 750, "linear", function() {
             // Animation complete.
+            tIsOpen = true;
+            tTimer = setInterval(closeTwilioBox, 15000);
           });
     });
 
     $('.twilio-close').click(function() {
+        clearInterval(tTimer);
         $( ".twilio-box" ).animate({
             right: -tWidth,
           }, 750, "linear", function() {
             // Animation complete.
+            tIsOpen = false;
+            $('.twilio-box').css({'display': 'none'});
           });
     });
-    var sWidth = $( ".stripe-box" ).width() + 63;
-    $('.stripe-box').css({'left': -sWidth, 'top': '20px'});
+
+    function closeTwilioBox() {
+        $('.twilio-close').click();
+    }
+
+    var sWidth = $( ".stripe-box" ).width();
+    var winWidth = $( window ).width();
+    var sOpen;
+    var sClosed;
+    var sIsOpen = false;
+
+    //Close stripe box to start
+    if (winWidth < 768) {
+        sOpen = {left: 5};
+        sClosed = {left: -sWidth -30};
+
+        $('.stripe-box').css({width: $( window ).width() - 30});
+        $('.stripe-box').css(sClosed);
+        
+    } else {
+        sOpen = {left: 20};
+        sClosed = {left: -sWidth - 37};
+
+        $('.stripe-box').css(sClosed);
+    }
+
+    $(window).resize(function() {
+
+        tWidth = $( ".twilio-box" ).width() + 26;
+        if (!tIsOpen) {
+            $('.twilio-box').css({'right': -tWidth});
+        }
+
+        winWidth = $(window).width();
+
+        if (winWidth < 768) {
+            $('.stripe-box').css({width: $( window ).width() - 30});
+            sWidth = $( ".stripe-box" ).width();
+            if (!sIsOpen) {
+                $('.stripe-box').css({width: $( window ).width() - 30, left: -sWidth - 30});
+            } else {
+                $('.stripe-box').css({left: 5});
+            }
+            sClosed = {left: -sWidth -30};
+            sOpen = {left: 5};
+        } else {
+            $('.stripe-box').css({width: 400});
+            sWidth = $( ".stripe-box" ).width();
+            sClosed = {left: -sWidth -30};
+            sOpen = {left: 20};
+            $('.stripe-box').css(sOpen);
+        }
+        
+        
+    }); 
 
     $('.stripe').click(function() {
-        console.log($( ".twilio-box" ).css('width'));
-        $( ".stripe-box" ).animate({
-            left: 20,
-          }, 750, "linear", function() {
+        $('.stripe-box').css({display: 'block'});
+        $( ".stripe-box" ).animate(
+            sOpen, 750, "linear", function() {
             // Animation complete.
-          });
+            sIsOpen = true;
+        });
     });
 
     $('.stripe-close').click(function() {
-        $( ".stripe-box" ).animate({
-            left: -sWidth,
-          }, 750, "linear", function() {
+        $( ".stripe-box" ).animate(
+            sClosed,
+            750, "linear", function() {
             // Animation complete.
-          });
+            $('.stripe-box').css({display: 'none'});
+            sIsOpen = false;
+        });
     });
 
     var stripe = Stripe('pk_test_12TFpUfmsd3Z6lrZnMkfAEa600N8beWnOO');
