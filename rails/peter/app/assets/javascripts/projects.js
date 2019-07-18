@@ -1,9 +1,9 @@
 
 $(document).on("turbolinks:load", function() {
-    console.log("TURBO");
-    //console.log($( ".twilio-box" ).css('width'));
+
     var tWidth = $( ".twilio-box" ).width() + 26;
     $('.twilio-box').css({'right': -tWidth});
+
     $('.twilio').click(function() {
         console.log($( ".twilio-box" ).css('width'));
         $( ".twilio-box" ).animate({
@@ -12,6 +12,7 @@ $(document).on("turbolinks:load", function() {
             // Animation complete.
           });
     });
+
     $('.twilio-close').click(function() {
         $( ".twilio-box" ).animate({
             right: -tWidth,
@@ -19,4 +20,87 @@ $(document).on("turbolinks:load", function() {
             // Animation complete.
           });
     });
+    var sWidth = $( ".stripe-box" ).width() + 63;
+    $('.stripe-box').css({'left': -sWidth, 'top': '20px'});
+
+    $('.stripe').click(function() {
+        console.log($( ".twilio-box" ).css('width'));
+        $( ".stripe-box" ).animate({
+            left: 20,
+          }, 750, "linear", function() {
+            // Animation complete.
+          });
+    });
+
+    $('.stripe-close').click(function() {
+        $( ".stripe-box" ).animate({
+            left: -sWidth,
+          }, 750, "linear", function() {
+            // Animation complete.
+          });
+    });
+
+    var stripe = Stripe('pk_test_12TFpUfmsd3Z6lrZnMkfAEa600N8beWnOO');
+    var elements = stripe.elements();
+
+    // Custom styling can be passed to options when creating an Element.
+    var style = {
+        base: {
+        // Add your base input styles here. For example:
+        fontSize: '16px',
+        color: "#32325d",
+        }
+    };
+  
+    // Create an instance of the card Element.
+    var card = elements.create('card', {style: style});
+
+    // Add an instance of the card Element into the `card-element` <div>.
+    card.mount('#card-element');
+
+    card.addEventListener('change', function(event) {
+        var displayError = document.getElementById('card-errors');
+        if (event.error) {
+            displayError.textContent = event.error.message;
+        } else {
+            displayError.textContent = '';
+        }
+    });
+
+    var form = document.getElementById('payment-form');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        stripe.createToken(card).then(function(result) {
+            if (result.error) {
+            // Inform the customer that there was an error.
+            var errorElement = document.getElementById('card-errors');
+            errorElement.textContent = result.error.message;
+            } else {
+            // Send the token to your server.
+            $( ".stripe-box" ).animate({
+                left: -sWidth,
+              }, 750, "linear", function() {
+                // Animation complete.
+              });
+
+            stripeTokenHandler(result.token);
+            }
+        });
+    });
+
+    function stripeTokenHandler(token) {
+        // Insert the token ID into the form so it gets submitted to the server
+        var form = document.getElementById('payment-form');
+        var hiddenInput = document.createElement('input');
+        hiddenInput.setAttribute('type', 'hidden');
+        hiddenInput.setAttribute('name', 'stripeToken');
+        hiddenInput.setAttribute('value', token.id);
+        form.appendChild(hiddenInput);
+      
+        // Submit the form
+        form.submit();
+    }
+
 });

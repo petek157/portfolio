@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get 'resume', :to => 'home#resume'
   get 'details', :to => 'home#detail'
   get 'contact', :to => 'home#contact'
-
+  post 'donate', :to => 'home#donate'
+  
   get 'home/index'
   get 'home/resume'
   get 'home/detail'

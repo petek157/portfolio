@@ -7,9 +7,26 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://js.stripe.com/v3/"></script>
   </head>
 
   <body>
+
+    <% if !flash[:notice].blank? %>
+        <div class=" note notice">
+            <%= flash[:notice] %>
+        </div>
+    <% elsif flash[:success] %>
+        <div class="note success">
+            <%= flash[:success] %>
+        </div>
+    <% elsif flash[:alert] %>
+        <div class="note alert">
+            <%= flash[:alert] %>
+        </div>
+    <% end %>
+    <!--<div class="stripe"><img src="/donate.png"/></div>-->
+    <div class="stripe">Donate to 4 the Kids</div>
     <div class="nav">
         <div class="nav-left">
             <div class="name"><%= link_to('Peter Koruga', root_path()) %></div>
@@ -39,7 +56,56 @@
           <span class="twilio-number">(906) 662-4859</span>
           <span class="twilio-power">Powered by Twilio API</span>
         </div>
+
+        <div class="stripe-box">
+          <div class="stripe-close"><%= fa_icon("times") %></div>
+          <div class="stripe-header">Donate to WUP Rise / 4 the Kids</div>
+          <div class="stripe-note">To be clear, this is live. Its NOT a demo.<br />But does demonstrate my use of Stripe and Twilio API.</div>
+          <div class="donate-intro">
+            <p>I, Peter, am a founding member of WUP Rise / 4 the Kids. We are a U.S. Non-profit organization that raises money to support the youth of the Western Upper Peninsula of Michigan. We are primarily interested
+            in helping in the areas of technology education, fitness and athletics. Information about our most recent project can be found <a class="stripe-link" target="_blank"href='https://www.facebook.com/4thekidswakefield'>here</a>.</p>
+            <p>If you have any question please feel free to contact me anytime.</p>
+            <p>To donate, please fill out the form below.</p>
+          </div>
+          <%= form_tag('/donate', method: :post, id: "payment-form")%>
+              <table>
+                <tr>
+                  <th><%= label_tag(:firstname, 'First Name') %></th>
+                  <td><%= text_field_tag(:firstname, nil, class: 'big-field')%></td>
+                </tr>
+                <tr>
+                  <th><%= label_tag(:lastname, 'Last Name') %></th>
+                  <td><%= text_field_tag(:lastname, nil, class: 'big-field')%></td>
+                </tr>
+                <tr>
+                  <th><%= label_tag(:company, 'Company') %></th>
+                  <td><%= text_field_tag(:company, nil, class: 'big-field')%></td>
+                </tr>
+                <tr>
+                  <th><%= label_tag(:email) %></th>
+                  <td><%= text_field_tag(:email, nil, class: 'big-field')%></td>
+                </tr>
+                <tr>
+                  <th><%= label_tag(:amount, 'Amount in US$') %></th>
+                  <td><%= text_field_tag(:amount, nil, class: 'big-field')%></td>
+                </tr>
+                <tr>
+                  <th><%= label_tag('card-element', 'Card Info') %></th>
+                  <td><div id="card-element"></div></td>
+                </tr>
+              </table>
+
+                <div id="card-errors" role="alert"></div>
+
+              <button>Submit Donation</button>
+            
+            </form>
+        </div>
+
     </div>
     <%= yield %>
+    <footer>
+      <div class="footer">Admittedly not a designer. But theme is based on my love of sunrise and sunset.</div>
+    </footer>
   </body>
 </html>
