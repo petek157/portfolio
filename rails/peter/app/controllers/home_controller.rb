@@ -15,9 +15,6 @@ class HomeController < ApplicationController
 
   def donate
 
-    require 'sendgrid-ruby'
-    include SendGrid
-    
     Stripe.api_key = Rails.application.credentials.dig(:stripe, :sand_sec_key)
 
     token = params[:stripeToken]
@@ -77,17 +74,8 @@ class HomeController < ApplicationController
     else
       flash[:success] = " #{first} You Are Awesome! Thank you for your donation!"
 
-      from = Email.new(email: 'peterk3@koruga.com')
-      to = Email.new(email: email)
-      subject = 'Thank you for your donation'
-      content = Content.new(type: 'text/plain', value: "Your donation of $#{params[:amount]} is greatly appreciated.")
-      mail = Mail.new(from, subject, to, content)
-
-      sg = SendGrid::API.new(api_key: Rails.application.credentials.dig(:sendgrid, :api))
-      response = sg.client.mail._('send').post(request_body: mail.to_json)
-      puts response.status_code
-      puts response.body
-      puts response.headers
+      contrib = {to: email, amount: dollars, company: company, first: first, last: last}
+      DonationMailer.with(contrib: contrib).send_wupty_email.deliver_later
 
     ensure
       redirect_to home_index_path()
