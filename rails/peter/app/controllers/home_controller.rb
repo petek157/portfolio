@@ -4,6 +4,21 @@ class HomeController < ApplicationController
   end
 
   def resume
+    respond_to  do |format|
+      format.html
+      format.pdf do
+        render pdf: 'test',
+          template: 'home/print.html.erb',
+          layout: 'resume.html.erb',
+          page_size: 'letter',
+          margin: {top: 15,
+                  bottom: 7,
+                  left: 10,
+                  right: 10},
+          outline: {outline: true,
+                    outline_depth: 2}
+        end
+     end
   end
 
   def detail

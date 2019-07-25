@@ -1,9 +1,15 @@
 class ProjectsController < ApplicationController
+
+  before_action :confirm_logged_in, :only => [:create, :update, :destroy]
+
   def index
     @projects = Project.all
+    redirect_to project_path(@projects[0].id)
   end
 
   def show
+    @user = User.find(session[:user_id]) if session[:user_id]
+    @allProjects = Project.all
     @project = Project.find(params[:id])
     @images = @project.image
   end
@@ -37,11 +43,8 @@ class ProjectsController < ApplicationController
     if @project.update_attributes(project_params)
       
       flash[:notice] = "#{@project.title} was updated successfully."
-      if params[:from] == 's'
-        redirect_to(project_path(@project))
-      else 
-        redirect_to(projects_path())
-      end
+      redirect_to(project_path(@project))
+
     else
       render('edit')
     end
@@ -64,5 +67,12 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:title, :description, :publicUrl, :adminUrl, :gitUrl, :intro, :main_image, image: [], :tech_ids => [])
+  end
+
+  def confirm_logged_in
+    unless session[:user_id]
+      flash[:notice] = 'You didnt think that Id let you change things did you? I just left it open for you to see my VERY simple, mostly unnecessary backend system as another entry in my portfolio.'
+      redirect_to project_path(params[:id])
+    end
   end
 end

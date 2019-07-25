@@ -1,18 +1,62 @@
-<%= link_to('Back', projects_path()) %>
-<h1><%= @project.title %></h1>
-<p><%= @project.description %></p>
-<% if @project.main_image.attached? %>
-    <%= content_tag(:div, image_tag(@project.main_image, class: "list-item-image"), class: "list-item" ) %>
-<% end %>
-<% @project.image.each do |i| %>
-    <%= content_tag(:div, image_tag(i, class: "list-item-image"), class: "list-item" )%>
-<% end %>
-<div class="teches">
-    <% @project.teches.each do |tech| %>
-        <div class="tech">
-            <%= tech.name %>
-        </div>
-    <% end %>
+<div class="admin-projects">
+    <div class="admin-top">
+        <div class="admin-head-page-title">Admin Area</div>
+        <div class="admin-menu"><%= @user ? link_to("Logout #{@user.first_name}" , access_logout_path()) : link_to('Login', access_login_path()) %></div>
+    </div>
+    <div class="project-list">
+        <div class="admin-menu-title">Projects</div>
+        <% @allProjects.each do |project| %>
+            <% if project.id == @project.id%>
+                <div class='project-title selected'><%= link_to(project.title, project_path(project.id)) %></div>
+            <% else %>
+                <div class='project-title'><%= link_to(project.title, project_path(project.id)) %></div>
+            <% end %>
+        <% end %>
+    </div>
+    <div class='admin-project'>
+        <%= form_for(@project, method: :put) do |f| %>
+            <%= hidden_field_tag(:from, @from, :readonly => true) %>
+
+            <div class="project-form-fields">
+                <%= content_tag(:div, f.text_field(:title, class: ["form-input", "form-title"], placeholder: "Title"), class: "form-item") %>
+                <%= content_tag(:div, f.text_field(:intro, class: ["form-input", "form-intro"], placeholder: "Short Intro"), class: "form-item") %>
+                <%= content_tag(:div, f.text_area(:description, class: ["form-input", "form-description"], placeholder: "Full Description"), class: "form-item") %>
+                <%= content_tag(:div, f.collection_check_boxes( :tech_ids, Tech.all, :id, :name, class: ["form-input", "form-description"]), class: ["form-tech", "form-item"]) %>
+                <%= content_tag(:div, f.text_field(:publicUrl, class: ["form-input", "form-public"], placeholder: "Public URL"), class: "form-item") %>
+                <%= content_tag(:div, f.text_field(:adminUrl, class: ["form-input", "form-admin"], placeholder: "Admin URL"), class: "form-item") %>
+                <%= content_tag(:div, f.text_field(:gitUrl, class: ["form-input", "form-git"], placeholder: "Github URL"), class: "form-item") %>
+                <div class="form-item form-main image">
+
+                </div>
+                <div class="form-item form-image image">
+                    <div class="form-image-con">
+                        <div class="form-image-label">Main Image</div>
+                        <div class="form-image-field"><%= f.file_field(:main_image) %></div>
+                    </div>
+                    <div class="form-main-image">
+                        <% if @project.main_image.attached? %>
+                            <%= image_tag(@project.main_image, class: "list-item-image")%>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="form-item form-image image">
+                    <div class="form-image-con">
+                        <div class="form-image-label">Other Images</div>
+                        <div class="form-image-field"><%= f.file_field(:image, multiple: true ) %></div>
+                    </div>
+                    <div class="form-main-image">
+                        <% @project.image.each do |i| %>
+                            <%= content_tag(:div, image_tag(i, class: "list-item-image"), class: "list-item" )%>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="form-buttons">
+                <%= f.submit("Edit #{@project.title}") %>
+                <%= link_to('Delete', delete_project_path(@project.id)) %>
+            </div>
+            </div>
+        <% end %>     
+    </div>
 </div>
-<%= link_to('Edit', edit_project_path(id: @project.id, from: 's')) %>
-<%= link_to('Delete', delete_project_path(@project.id)) %>
+
+

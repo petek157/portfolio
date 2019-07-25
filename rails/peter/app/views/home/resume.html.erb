@@ -1,4 +1,4 @@
-<div class="quick head">Resume</div>
+<div class="quick head"><%= link_to(fa_icon("file"), resume_path(format: :pdf)) %><span class="res-space">Resume</span><%= link_to(fa_icon("share"), resume_path(format: :pdf)) %></div>
 <div class="resume">
     <div id="experience" class="category">
         <h2 class="quick">Experience</h2>
@@ -11,7 +11,7 @@
             <p class="intro">All of the functionality of the back end of the website including Stripe payments.</p>
         </div>
         <div class="category-item">
-            <h3>5 Current iOS Apps</h3>
+            <h3>iOS Apps</h3>
             <ul>
                 <li>Crime Scene Evidence Marker (Tableview manipulation and Location Service)</li>
                 <li>Simple Schedule Viewer (EventKit)</li>
@@ -32,7 +32,7 @@
         </div>
     </div>
     <div id="languages" class="category">
-        <h2 class="quick">Languages</h2>
+        <h2 class="quick">Languages - Frameworks - Systems</h2>
         <p class="intro">Builing all of these project myself has pushed me to learn a number of different languages to complete the projects.</p>
         <ul class="lang-small">
             <li>HTML</li>
@@ -48,6 +48,7 @@
             <li>C++ (Wiring)</li>
             <li>Python</li>
             <li>SQL</li>
+            <li>AWS</li>
         </ul>
         <div class="lang-large">
             <div>HTML</div>
@@ -63,6 +64,7 @@
             <div>C++ (Wiring)</div>
             <div>Python</div>
             <div>SQL</div>
+            <div>AWS</div>
         </div>
     </div>
     <div id="certificates" class="category">

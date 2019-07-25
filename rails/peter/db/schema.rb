@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_11_152236) do
+ActiveRecord::Schema.define(version: 2019_07_25_174659) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -54,6 +54,18 @@ ActiveRecord::Schema.define(version: 2019_07_11_152236) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+    t.string "first_name", limit: 25
+    t.string "last_name", limit: 50
+    t.string "email", limit: 100, default: "", null: false
+    t.string "username", limit: 25
+    t.string "password_digest"
+    t.string "role", limit: 25
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["username"], name: "index_users_on_username"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

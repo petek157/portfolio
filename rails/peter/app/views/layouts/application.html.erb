@@ -9,18 +9,19 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="admin">
+    
     <div id="note"><!-- Make success error dynamic-->
-            <% if !flash[:notice].blank? %>
-                <div class="success">
-                    <%= flash[:notice] %>
-                </div>
-            <% else %>
-                <div class="divider">
-                    
-                </div>
-            <% end %>
-        </div>
+      <% if !flash[:notice].blank? %>
+          <div class="success">
+              <%= flash[:notice] %>
+          </div>
+      <% else %>
+          <div class="divider">
+              
+          </div>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
