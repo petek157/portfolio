@@ -13,7 +13,7 @@
             <ul>
                 <li>Uniquely expirenced in business for a developer<br />(Employee, Manager, Owner)</li>
                 <li>8 and counting live projects</li>
-                <li>Numerous in house projects used in private businesses</li> 
+                <li>Numerous more in house projects used in private businesses</li> 
                 <li>HTML, CSS, Javascript, jQuery, Swift, Objective-C, AWS, PHP, Ruby, Rails, React, C++ (Wiring), Python, SQL</li>
                 <li>16 Certificates from Lynda/LinkedIn Learning</li>
                 <li>WILL NEVER STOP LEARNING</li>
@@ -25,7 +25,7 @@
         <h2 class="quick">Projects</h2>
         <div class="projects">
             <% @projects.each do |p| %>
-                <div class="category-item">
+                <div class="category-item" data-item="<%= p.id%>">
                     <h3 class="intro"><%= p.title %></h3>
                     <ul>
                         <li class="intro"><%= p.intro %></li>

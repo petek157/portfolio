@@ -1,6 +1,31 @@
 
 $(document).on("turbolinks:load", function() {
     
+    $(".projects-detail .project-image").click(function() {
+        console.log("Image");
+        console.log($(this).attr("src"));
+
+        $('.view-project-image').css({'display': 'block'});
+        $(".image-obj").html("<img src=" + $(this).attr("src") + ">");
+        
+    });
+
+    $(".image-close").click(function() {
+        $('.view-project-image').css({'display': 'none'});
+    });
+
+    $("#home-projects .category-item").click(function() {
+        console.log("Here");
+        console.log($(this).data("item"));
+        window.location.href = "/details?id=" + $(this).data("item");
+    });
+
+    if ($(".selected").length > 0) {
+        $('html, body').animate({
+            scrollTop: $(".selected").offset().top
+        }, 2000);
+    }
+
     var tTimer = null;
     var tIsOpen = false;
     var tWidth = $( ".twilio-box" ).width() + 26;

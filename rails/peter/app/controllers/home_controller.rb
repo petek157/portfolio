@@ -23,6 +23,9 @@ class HomeController < ApplicationController
 
   def detail
     @projects = Project.all
+    if params[:id]
+      @selected = Project.find(params[:id])
+    end
   end
 
   def contact
